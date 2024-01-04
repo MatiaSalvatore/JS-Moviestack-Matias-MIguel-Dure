@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Moviestack Home</title>
+    <link rel="icon" type="image/x-icon" href="/img/Moviestack_favicon.png">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                screens: {
+                'sm': '100px',
+                'md': '768px',
+                }
+  }
+        }
+      </script>
+</head>
+
+
+<body>
+    <header class="flex items-center md:flex-row sm:flex-col md:place-content-between sm:place-content-center md:h-[100px] sm:h-[300px] bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 ">
+        <a class="flex flex-row content-start items-center ">
+            <img src="img/Moviestack_isotipo.png" class="w-48" alt="logo">
+            <img src="img/Moviestack_logotipo2.png" class="w-96 -ml-[120px]" alt="logo_ok">
+        </a>
+
+        <nav class="flex flex-row gap-20 md:mr-12 text-2xl font-sans ">
+            <a class= "hover:text-white " href="index.html">HOME</a>
+            <a class= "text-white" href="movies.html">MOVIES</a>
+            <a class= "hover:text-white" href="#">FAVS</a>
+        </nav>
+    </header>
+
+    <main class="flex flex-col place-items-center bg-slate-300">
+        <img src="img/banner-movies-cropped.jpg" class="mt-12 sm:w-full md:w-[1000px] rounded-md" alt="banner">
+        <div class="flex flex-no-wrap overflow-x-auto md:w-[1000px] h-[520px] sm:w-full items-start mb-8 gap-[20px] mt-12" id="container">  
+        </div>
+
+    </main>
+    <footer class="flex flex-col items-center place-items-center bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 h-20 mt-auto">
+        <h1 class="text-2xl font-sans mt-[20px]">MindHub Cohort N° 53</h1>
+    </footer>
+    <script src="data.js"></script>
+    <script src="main.js"></script>
+</body>
+</html>

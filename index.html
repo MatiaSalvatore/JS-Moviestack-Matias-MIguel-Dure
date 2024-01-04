@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Moviestack Home</title>
+    <link rel="icon" type="image/x-icon" href="/img/Moviestack_favicon.png">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                screens: {
+                'sm': '100px',
+                // => @media (min-width: 640px) { ... }
+
+                'md': '768px',
+                // => @media (min-width: 768px) { ... }
+
+                }
+  }
+        }
+      </script>
+</head>
+
+
+<body>
+    <header class="flex items-center md:flex-row sm:flex-col md:place-content-between sm:place-content-center md:h-[100px] sm:h-[300px] bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 ">
+        <a class="flex flex-row content-start items-center ">
+            <img src="img/Moviestack_isotipo.png" class="w-48" alt="logo">
+            <img src="img/Moviestack_logotipo2.png" class="w-96 -ml-[120px]" alt="logo_ok">
+        </a>
+
+        <nav class="flex flex-row gap-20 md:mr-12 text-2xl font-sans ">
+            <a class= "text-white " href="index.html">HOME</a>
+            <a class= "hover:text-white" href="movies.html">MOVIES</a>
+            <a class= "hover:text-white" href="#">FAVS</a>
+        </nav>
+    </header>
+
+    <main class="flex flex-col place-items-center bg-slate-300 bg-gradient-to-t from-purple-300 via-slate-400 to-slate-400">
+        <img src="img/banner-welcome-cropped.jpg" class="mt-12 sm:w-full md:w-[1000px] rounded-md" alt="banner">
+        <p class ="sm:text-base md:text-2xl font-sans mt-12 w-1/2 text-justify	leading-normal mb-12 sm:w-2/3 md:w-2/3" >"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+        </p>
+        <div class ="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 gap-12 mb-12"  >
+            <a href="" class="">
+                <img src="img/movies.png" class="md:w-[400px] sm:w-[200px]" alt="movies">
+            </a>
+            <a href="" class="">
+                <img src="img/favs.png" class=" md:w-[400px] sm:w-[200px]" alt="favs">
+            </a>
+        </div>
+    </main>
+    <footer class="flex flex-col items-center place-items-center bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 h-20 mt-auto">
+        <h1 class="text-2xl font-sans mt-[20px]">MindHub Cohort N° 53</h1>
+    </footer>
+</body>
+</html>
