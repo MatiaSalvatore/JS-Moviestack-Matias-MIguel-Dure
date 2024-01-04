@@ -1,25 +1,4 @@
-console.log("Hello world")
-function card_creator(movies){
-    return `  
-    <article>
-    <h2>${movies.title}</h2>
-    <img src="${movies.image}">
-    <p>${movies.overview}</p>
-</article>
-`
-}
-
 const contenedor = document.getElementById("container")
-
-for (const movie of movies){
-    const card = card_creator(movie);
-    contenedor.innerHTML += card
-}
-
-
-
-
-
 
 function card_creator(movies){
     return `  
@@ -32,3 +11,12 @@ function card_creator(movies){
     </article>
 `
 }
+
+function add_card(array){
+    for (const movie of array){
+        const card = card_creator(movie);
+        contenedor.innerHTML += card
+    }    
+}
+
+add_card(movies)
