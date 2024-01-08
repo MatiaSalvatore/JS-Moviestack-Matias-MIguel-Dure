@@ -26,7 +26,6 @@
             <img src="img/Moviestack_isotipo.png" class="w-48" alt="logo">
             <img src="img/Moviestack_logotipo2.png" class="w-96 -ml-[120px]" alt="logo_ok">
         </a>
-
         <nav class="flex flex-row gap-20 md:mr-12 text-2xl font-sans ">
             <a class= "hover:text-white " href="index.html">HOME</a>
             <a class= "text-white" href="movies.html">MOVIES</a>
@@ -36,9 +35,30 @@
 
     <main class="flex flex-col place-items-center bg-gradient-to-r from-slate-300 to-zinc-300">
         <img src="img/banner-movies-cropped.jpg" class="mt-12 sm:w-full md:w-[1000px] rounded-md" alt="banner">
-        <div class="flex flex-no-wrap overflow-x-auto md:w-[1000px] h-[520px] sm:w-full items-start mb-8 gap-[20px] mt-12" id="container">  
+        <div class="inline-block mt-12">
+            <label>Search by genre:
+                <select name="cars" id="genreSearch">
+                    <option value="All">All</option>
+                    <option value="Action">Action</option>
+                    <option value="Adventure">Adventure</option>
+                    <option value="Animation">Animation</option>
+                    <option value="Comedy">Comedy</option>
+                    <option value="Crime">Crime</option>
+                    <option value="Drama">Drama</option>
+                    <option value="Family">Family</option>
+                    <option value="Fantasy">Fantasy</option>
+                    <option value="Horror">Horror</option>
+                    <option value="Mystery">Mystery</option>
+                    <option value="Romance">Romance</option>
+                    <option value="Science Fiction">Science Fiction</option>
+                    <option value="Thriller">Thriller</option>
+                </select>
+            </label>
+        
+            <label class="ml-8">Search by title: <input type="text" id="titleSearch"></label>
         </div>
-
+        <div class="flex flex-row flex-wrap md:w-3/4 gap-4  items-center justify-center mt-8 mb-8" id="container">
+        </div>
     </main>
     <footer class="flex flex-col items-center place-items-center bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 h-20 mt-auto">
         <h1 class="text-2xl font-sans mt-[20px]">MindHub Cohort N° 53</h1>
