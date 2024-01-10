@@ -21,7 +21,7 @@
 
 <body>
     <header
-        class="flex items-center md:flex-row sm:flex-col md:place-content-between sm:place-content-center md:h-[100px] sm:h-[300px] bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500">
+        class="flex items-center md:flex-row sm:flex-col md:place-content-between sm:place-content-center md:h-[100px] sm:h-[300px] bg-[#222222] text-[#C4CAD0]">
         <a class="flex flex-row content-start items-center " href="index.html">
             <img src="img/Moviestack_isotipo.png" class="w-48" alt="logo">
             <img src="img/Moviestack_logotipo2.png" class="w-96 -ml-[120px]" alt="logo_ok">
@@ -33,11 +33,11 @@
         </nav>
     </header>
 
-    <main class="flex flex-col place-items-center bg-gradient-to-r from-slate-300 to-zinc-300">
-        <img src="img/banner-movies-cropped.jpg" class="mt-12 sm:w-full md:w-[1000px] rounded-md" alt="banner">
+    <main class="flex flex-col place-items-center bg-[#FCF7FF]">
+        <img src="img/movies_banner.jpg" class="mt-12 sm:w-full md:w-[1000px] rounded-md" alt="banner">
         <div class="inline-block mt-12">
             <label>Search by genre:
-                <select name="cars" id="genreSearch">
+                <select name="cars" id="genreSearch" class="rounded-full p-4 bg-[#222222] text-white">
                     <option value="All">All</option>
                     <option value="Action">Action</option>
                     <option value="Adventure">Adventure</option>
@@ -55,15 +55,16 @@
                 </select>
             </label>
         
-            <label class="ml-8">Search by title: <input type="text" id="titleSearch"></label>
+            <label class="ml-8">Search by title: <input type="text" id="titleSearch" placeholder="e.g. Oppenheimer"
+                    class="bg-[#222222] rounded-full p-4 w-[400px] text-white"></label>
         </div>
         <div class="flex flex-row flex-wrap md:w-3/4 gap-4  items-center justify-center mt-8 mb-8" id="container">
         </div>
     </main>
     <footer class="flex flex-col items-center place-items-center bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 h-20 mt-auto">
-        <h1 class="text-2xl font-sans mt-[20px]">MindHub Cohort N° 53</h1>
+        <h1 class="text-2xl font-sans mt-[20px] text-[#C4CAD0]">MindHub Cohort N° 53</h1>
     </footer>
     <script src="data.js"></script>
-    <script src="main.js"></script>
+    <script type="module" src="main.js"></script>
 </body>
 </html>
