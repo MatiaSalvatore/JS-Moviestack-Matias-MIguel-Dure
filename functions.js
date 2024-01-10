@@ -1,4 +1,3 @@
-
 //Creador de cards para peliculas
 
 function card_creator(movie){
