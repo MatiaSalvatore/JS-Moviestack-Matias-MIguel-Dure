@@ -5,11 +5,12 @@ const titleSearch = document.querySelector("#titleSearch")
 const genreSearch = document.querySelector("#genreSearch")
 
 //Cuando inicia la página se muestran las películas sin filtros:
+let favorites = []
 let genre_filter = []
 let name_filter = []
 let filter_array = []
-let favs = JSON.parse(localStorage.getItem("favs"))
-let movie_catalog = favs
+let movie_catalog = []
+let favs = JSON.parse(localStorage.getItem("favs")) || []
 
 const apiKey = "0ff70d54-dc0b-4262-9c3d-776cb0f34dbd"
 
@@ -20,15 +21,22 @@ const init = {
     }
 }
 
-add_card(favs,contenedor)
+const api = fetch('https://moviestack.onrender.com/api/movies', init).then(response => response.json()).then(data =>{
+    movie_catalog = data.movies
+    add_Cards()
+    add_card(favorites,contenedor,favorites)
+    console.log(movie_catalog)
+    genre_filter = data.movies
+    name_filter = data.movies
+} ).catch(err => console.log(err))
+
 
 titleSearch.addEventListener("input",()=>{
     clean_board(contenedor)
     name_filter = movie_catalog.filter(x => x.title.toLowerCase().includes(titleSearch.value.toLowerCase()))
     filter_array = name_filter.filter(x=> genre_filter.includes(x))
-    add_card(filter_array,contenedor)
+    add_card(filter_array,contenedor,favs)
     error_message()
-    fav_functionality()
 })
 
 
@@ -39,7 +47,6 @@ genreSearch.addEventListener("change",()=>{
         filter_array = genre_filter.filter(x=> name_filter.includes(x))
         add_card(filter_array,contenedor)
         error_message()
-        fav_functionality()
     }
     else{
         clean_board(contenedor)
@@ -47,7 +54,6 @@ genreSearch.addEventListener("change",()=>{
         filter_array = genre_filter.filter(x=> name_filter.includes(x))
         add_card(filter_array,contenedor)
         error_message()
-        fav_functionality()
     }
 })
 
@@ -60,27 +66,30 @@ function error_message(){
 
 
 function fav_functionality(){
-    const favourites = document.querySelectorAll(".favbtn")
-    favourites.forEach(movie => {
-        movie.addEventListener("click",()=>{
-            let movieId = movie.getAttribute("id")
+    contenedor.addEventListener("click", (e)=>{
+        if (e.target.dataset.id != undefined){
+            let movieId = e.target.dataset.id 
             let add_fav = movie_catalog.find(movie => movie.id === movieId)
-            let remove_fav = movie_catalog.findIndex(movie =>movie.id === movieId)
-            if (add_fav.favourited === true){
-                add_fav.favourited = true
-                favs.push(add_fav)
-                localStorage.setItem("favs",JSON.stringify(favs))
-                movie.setAttribute("fill", "white")
+            console.log(add_fav)
+            if(favs.includes(movieId)){
+                favs = favs.filter(x => x != movieId)
+                e.target.className = "h-32 w-32 fill-blue-500"
             }
             else {
-                console.log("already_added")
-                add_fav.favourited = false
-                favs.splice(remove_fav,1)
-                localStorage.setItem("favs",JSON.stringify(favs))
+                favs.push(movieId)
+                e.target.className = "h-32 w-32 fill-red-500"
             }
-            
+            }
+        localStorage.setItem("favs",JSON.stringify(favs))
+        }
+    )
+}
 
-        })
+fav_functionality()
 
+function add_Cards(){
+    favs.forEach(movieId =>{
+        const moviefav = movie_catalog.find(movie => movie.id === movieId)
+        favorites.push(moviefav)
     });
 }

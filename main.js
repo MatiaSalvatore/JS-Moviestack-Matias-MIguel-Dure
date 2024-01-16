@@ -23,11 +23,10 @@ const init = {
 
 const api = fetch('https://moviestack.onrender.com/api/movies', init).then(response => response.json()).then(data =>{
     movie_catalog = data.movies
-    add_card(movie_catalog,contenedor,favs)
+    add_card(movie_catalog,contenedor,movie_catalog)
     console.log(movie_catalog)
     genre_filter = data.movies
     name_filter = data.movies
-    fav_functionality()
 } ).catch(err => console.log(err))
 
 
@@ -37,7 +36,6 @@ titleSearch.addEventListener("input",()=>{
     filter_array = name_filter.filter(x=> genre_filter.includes(x))
     add_card(filter_array,contenedor,favs)
     error_message()
-    fav_functionality()
 })
 
 
@@ -48,7 +46,6 @@ genreSearch.addEventListener("change",()=>{
         filter_array = genre_filter.filter(x=> name_filter.includes(x))
         add_card(filter_array,contenedor)
         error_message()
-        fav_functionality()
     }
     else{
         clean_board(contenedor)
@@ -56,7 +53,6 @@ genreSearch.addEventListener("change",()=>{
         filter_array = genre_filter.filter(x=> name_filter.includes(x))
         add_card(filter_array,contenedor)
         error_message()
-        fav_functionality()
     }
 })
 
@@ -68,29 +64,54 @@ function error_message(){
 }
 
 
-function fav_functionality(){
+/*function fav_functionality(){
     const favourites = document.querySelectorAll(".favbtn")
     favourites.forEach(movie => {
         movie.addEventListener("click",()=>{
             let movieId = movie.getAttribute("id")
-            let remove_fav = movie_catalog.findIndex(movie =>movie.id === movieId)
             let add_fav = movie_catalog.find(movie => movie.id === movieId)
-            if (add_fav.favourited === false || add_fav.favourited === null){
-                add_fav.favourited = true
-                favs.push(add_fav)
-                localStorage.setItem("favs",JSON.stringify(favs))
-                movie.setAttribute("fill", "white")
+
+            favs.forEach(fav =>{
+                if (fav.id == add_fav.id){
+                        favs.push(add_fav)
+                        localStorage.setItem("favs", JSON.stringify(favs))
+                        console.log("Hola1")
+                    }
+                else{
+                        favs = favs.filter(x => fav.id != add_fav.id)
+                        localStorage.setItem("favs", JSON.stringify(favs))
+                        console.log("Adios")
+                    }
+                })
+            
+        })
+    });
+} */
+
+
+function fav_functionality(){
+    contenedor.addEventListener("click", (e)=>{
+        if (e.target.dataset.id != undefined){
+            let movieId = e.target.dataset.id 
+            let add_fav = movie_catalog.find(movie => movie.id === movieId)
+            console.log(add_fav)
+            if(favs.includes(movieId)){
+                favs = favs.filter(x => x != movieId)
+                e.target.className = "h-32 w-32 bg-white"
+                e.target.className = "fill-blue-500"
             }
             else {
-                console.log("already_added")
-                movie.setAttribute("fill", "black")
-                add_fav.favourited = false
-                favs.splice(remove_fav,1)
-                localStorage.setItem("favs",JSON.stringify(favs))
+                favs.push(movieId)
+                e.target.className = "fill-blue-500"
             }
-            
-
-        })
-
-    });
+            }
+        localStorage.setItem("favs",JSON.stringify(favs))
+        }
+    )
 }
+
+
+
+
+fav_functionality()
+
