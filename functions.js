@@ -11,7 +11,7 @@ function card_creator(movie,array_comparison){
             <div class = "h-[175px] text-wrap overflow-auto m-1 ">
                 <p class="font-normal text-gray-700 dark:text-gray-400 text-justify m-3">${movie.overview}</p>
             </div>
-            <div class="flex flex-row content-center items-center place-content-evenly gap-8">
+            <div data-id="${movie.id}" class="flex flex-row content-center items-center place-content-evenly gap-8">
             <svg data-id="${movie.id}" fav="activated" class="favbtn" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="white" class="bi bi-heart-fill" viewBox="0 0 16 16">
       <path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314"/>
     </svg>
@@ -28,9 +28,9 @@ function card_creator(movie,array_comparison){
             <div class = "h-[175px] text-wrap overflow-auto m-1 ">
                 <p class="font-normal text-gray-700 dark:text-gray-400 text-justify m-3">${movie.overview}</p>
             </div>
-            <div class="flex flex-row content-center items-center place-content-evenly gap-8">
-            <div data-id="${movie.id}" class="h-32 w-32 bg-white">
-            <svg data-id="${movie.id}" fav="deactivated" class="favbtn" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="black" class="bi bi-heart-fill" viewBox="0 0 16 16">
+            <div class="flex flex-row content-center items-center place-content-evenly gap-8 ">
+            <div data-id="${movie.id} "class="h-12 w-12 bg-black rounded-md flex flex-row items-center justify-center">
+            <svg data-id="${movie.id} "fav="deactivated" class="favbtn" xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="white" class="bi bi-heart-fill" viewBox="0 0 16 16">
       <path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314"/>
       </div>
     </svg>

@@ -26,8 +26,8 @@ const api = fetch('https://moviestack.onrender.com/api/movies', init).then(respo
     add_Cards()
     add_card(favorites,contenedor,favorites)
     console.log(movie_catalog)
-    genre_filter = data.movies
-    name_filter = data.movies
+    genre_filter = favorites
+    name_filter = favorites
 } ).catch(err => console.log(err))
 
 
@@ -72,12 +72,12 @@ function fav_functionality(){
             let add_fav = movie_catalog.find(movie => movie.id === movieId)
             console.log(add_fav)
             if(favs.includes(movieId)){
+                clean_board(contenedor)
                 favs = favs.filter(x => x != movieId)
-                e.target.className = "h-32 w-32 fill-blue-500"
+                location.reload()
             }
             else {
                 favs.push(movieId)
-                e.target.className = "h-32 w-32 fill-red-500"
             }
             }
         localStorage.setItem("favs",JSON.stringify(favs))

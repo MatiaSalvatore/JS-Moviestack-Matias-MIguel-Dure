@@ -97,12 +97,9 @@ function fav_functionality(){
             console.log(add_fav)
             if(favs.includes(movieId)){
                 favs = favs.filter(x => x != movieId)
-                e.target.className = "h-32 w-32 bg-white"
-                e.target.className = "fill-blue-500"
             }
             else {
                 favs.push(movieId)
-                e.target.className = "fill-blue-500"
             }
             }
         localStorage.setItem("favs",JSON.stringify(favs))
