@@ -1,8 +1,9 @@
 //Creador de cards para peliculas
 
-function card_creator(movie){
+function card_creator(movie,array_comparison){
     let card = ``
-    if (movie.favourited === true){
+    if (array_comparison.some(mov => mov.id === movie.id)){
+        movie.favourite = true
         card = `  
         <article class="flex-shrink-0 w-[300px] border-gray-200 rounded-lg shadow dark:bg-[#222222] dark:border-[#222222] transition ease-in-out  hover:transform hover:scale-110">
             <img class="rounded-t-lg" src="https://moviestack.onrender.com/static/${movie.image}" alt="" >
@@ -20,6 +21,7 @@ function card_creator(movie){
             </article>
 `}
     else{
+        movie.favourite = false
         card = `  
         <article class="flex-shrink-0 w-[300px] border-gray-200 rounded-lg shadow dark:bg-[#222222] dark:border-[#222222] transition ease-in-out  hover:transform hover:scale-110">
             <img class="rounded-t-lg" src="https://moviestack.onrender.com/static/${movie.image}" alt="" >
@@ -43,9 +45,9 @@ function card_creator(movie){
 
 //Añadir cards a un container
 
-export function add_card(array, container){
+export function add_card(array, container,comparison){
     for (const movie of array){
-        const card = card_creator(movie);
+        const card = card_creator(movie,comparison);
         container.innerHTML += card
     }    
 }

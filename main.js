@@ -5,6 +5,7 @@ const titleSearch = document.querySelector("#titleSearch")
 const genreSearch = document.querySelector("#genreSearch")
 
 //Cuando inicia la página se muestran las películas sin filtros:
+
 let genre_filter = []
 let name_filter = []
 let filter_array = []
@@ -22,7 +23,7 @@ const init = {
 
 const api = fetch('https://moviestack.onrender.com/api/movies', init).then(response => response.json()).then(data =>{
     movie_catalog = data.movies
-    add_card(movie_catalog,contenedor)
+    add_card(movie_catalog,contenedor,favs)
     console.log(movie_catalog)
     genre_filter = data.movies
     name_filter = data.movies
@@ -34,7 +35,7 @@ titleSearch.addEventListener("input",()=>{
     clean_board(contenedor)
     name_filter = movie_catalog.filter(x => x.title.toLowerCase().includes(titleSearch.value.toLowerCase()))
     filter_array = name_filter.filter(x=> genre_filter.includes(x))
-    add_card(filter_array,contenedor)
+    add_card(filter_array,contenedor,favs)
     error_message()
     fav_functionality()
 })
@@ -72,6 +73,7 @@ function fav_functionality(){
     favourites.forEach(movie => {
         movie.addEventListener("click",()=>{
             let movieId = movie.getAttribute("id")
+            let remove_fav = movie_catalog.findIndex(movie =>movie.id === movieId)
             let add_fav = movie_catalog.find(movie => movie.id === movieId)
             if (add_fav.favourited === false || add_fav.favourited === null){
                 add_fav.favourited = true
@@ -81,8 +83,10 @@ function fav_functionality(){
             }
             else {
                 console.log("already_added")
+                movie.setAttribute("fill", "black")
                 add_fav.favourited = false
-                movie.setAttribute("fill","black")
+                favs.splice(remove_fav,1)
+                localStorage.setItem("favs",JSON.stringify(favs))
             }
             
 

@@ -8,7 +8,7 @@ const genreSearch = document.querySelector("#genreSearch")
 let genre_filter = []
 let name_filter = []
 let filter_array = []
-let favs = JSON.parse(localStorage.getItem("favs")) || []
+let favs = JSON.parse(localStorage.getItem("favs"))
 let movie_catalog = favs
 
 const apiKey = "0ff70d54-dc0b-4262-9c3d-776cb0f34dbd"
@@ -65,7 +65,8 @@ function fav_functionality(){
         movie.addEventListener("click",()=>{
             let movieId = movie.getAttribute("id")
             let add_fav = movie_catalog.find(movie => movie.id === movieId)
-            if (add_fav.favourited === false || add_fav.favourited === null){
+            let remove_fav = movie_catalog.findIndex(movie =>movie.id === movieId)
+            if (add_fav.favourited === true){
                 add_fav.favourited = true
                 favs.push(add_fav)
                 localStorage.setItem("favs",JSON.stringify(favs))
@@ -74,7 +75,8 @@ function fav_functionality(){
             else {
                 console.log("already_added")
                 add_fav.favourited = false
-                movie.setAttribute("fill","black")
+                favs.splice(remove_fav,1)
+                localStorage.setItem("favs",JSON.stringify(favs))
             }
             
 
