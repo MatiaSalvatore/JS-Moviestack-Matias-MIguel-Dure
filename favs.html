@@ -1,21 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Moviestack Movies</title>
+    <title>MovieStack Favs</title>
     <link rel="icon" type="image/x-icon" href="/img/Moviestack_favicon.png">
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
             theme: {
                 screens: {
-                'sm': '100px',
-                'md': '768px',
+                    'sm': '100px',
+                    'md': '768px',
                 }
-  }
+            }
         }
-      </script>
+    </script>
 </head>
 
 <body>
@@ -26,9 +27,9 @@
             <img src="img/Moviestack_logotipo2.png" class="w-96 -ml-[120px]" alt="logo_ok">
         </a>
         <nav class="flex flex-row gap-20 md:mr-12 text-2xl font-sans ">
-            <a class= "hover:text-white " href="index.html">HOME</a>
-            <a class= "text-white" href="movies.html">MOVIES</a>
-            <a class="hover:text-white" href="favs.html">FAVS</a>
+            <a class="hover:text-white " href="index.html">HOME</a>
+            <a class="hover:text-white" href="movies.html">MOVIES</a>
+            <a class="text-white" href="#">FAVS</a>
         </nav>
     </header>
 
@@ -53,7 +54,7 @@
                     <option value="Thriller">Thriller</option>
                 </select>
             </label>
-        
+
             <label class="ml-8">Search by title: <input type="text" id="titleSearch" placeholder="e.g. Oppenheimer"
                     class="bg-[#222222] rounded-full p-4 w-[400px] text-white"></label>
         </div>
@@ -64,6 +65,7 @@
         <h1 class="text-2xl font-sans mt-[20px] text-[#C4CAD0]">MindHub Cohort N° 53</h1>
     </footer>
     <script src="data.js"></script>
-    <script type="module" src="main.js"></script>
+    <script type="module" src="favs.js"></script>
 </body>
+
 </html>

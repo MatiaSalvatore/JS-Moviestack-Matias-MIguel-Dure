@@ -8,8 +8,8 @@ const genreSearch = document.querySelector("#genreSearch")
 let genre_filter = []
 let name_filter = []
 let filter_array = []
-let movie_catalog = []
 let favs = JSON.parse(localStorage.getItem("favs")) || []
+let movie_catalog = favs
 
 const apiKey = "0ff70d54-dc0b-4262-9c3d-776cb0f34dbd"
 
@@ -20,15 +20,7 @@ const init = {
     }
 }
 
-const api = fetch('https://moviestack.onrender.com/api/movies', init).then(response => response.json()).then(data =>{
-    movie_catalog = data.movies
-    add_card(movie_catalog,contenedor)
-    console.log(movie_catalog)
-    genre_filter = data.movies
-    name_filter = data.movies
-    fav_functionality()
-} ).catch(err => console.log(err))
-
+add_card(favs,contenedor)
 
 titleSearch.addEventListener("input",()=>{
     clean_board(contenedor)
