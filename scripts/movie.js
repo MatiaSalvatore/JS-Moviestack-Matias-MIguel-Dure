@@ -1,3 +1,12 @@
+/*
+  __  __  ______      _______ ______ 
+ |  \/  |/ __ \ \    / |_   _|  ____|
+ | \  / | |  | \ \  / /  | | | |__   
+ | |\/| | |  | |\ \/ /   | | |  __|  
+ | |  | | |__| | \  /   _| |_| |____ 
+ |_|  |_|\____/   \/   |_____|______|
+                                     
+*/
 const urlParams = new URLSearchParams(window.location.search);
 const movieId = urlParams.get('id')
 const container_top = document.querySelector('#container_top')

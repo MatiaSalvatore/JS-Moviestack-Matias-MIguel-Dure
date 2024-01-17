@@ -1,3 +1,15 @@
+/*
+  ______                                       
+ |  ____|                                      
+ | |__ __ ___   _____   _ __   __ _  __ _  ___ 
+ |  __/ _` \ \ / / __| | '_ \ / _` |/ _` |/ _ \
+ | | | (_| |\ V /\__ \ | |_) | (_| | (_| |  __/
+ |_|  \__,_| \_/ |___/ | .__/ \__,_|\__, |\___|
+                       | |           __/ |     
+                       |_|          |___/     
+*/
+
+
 import {add_card, clean_board} from './functions.js'
 
 const contenedor = document.getElementById("container")
@@ -21,11 +33,12 @@ const init = {
     }
 }
 
+//Llamando a la API para las películas:
+
 const api = fetch('https://moviestack.onrender.com/api/movies', init).then(response => response.json()).then(data =>{
     movie_catalog = data.movies
     add_Cards()
-    add_card(favorites,contenedor,favorites)
-    console.log(movie_catalog)
+    add_card(favorites,contenedor,favs)
     genre_filter = favorites
     name_filter = favorites
 } ).catch(err => console.log(err))
@@ -45,25 +58,25 @@ genreSearch.addEventListener("change",()=>{
         clean_board(contenedor)
         genre_filter = movie_catalog
         filter_array = genre_filter.filter(x=> name_filter.includes(x))
-        add_card(filter_array,contenedor)
+        add_card(filter_array,contenedor,favs)
         error_message()
     }
     else{
         clean_board(contenedor)
         genre_filter = movie_catalog.filter(x => x.genres.includes(genreSearch.value))
         filter_array = genre_filter.filter(x=> name_filter.includes(x))
-        add_card(filter_array,contenedor)
+        add_card(filter_array,contenedor,favs)
         error_message()
     }
 })
 
+//Funciones usadas en la página favs:
 
 function error_message(){
     if (filter_array.length === 0){
         contenedor.innerText = "Sorry! But there are no matching results"
     }
 }
-
 
 function fav_functionality(){
     contenedor.addEventListener("click", (e)=>{
@@ -72,7 +85,6 @@ function fav_functionality(){
             let add_fav = movie_catalog.find(movie => movie.id === movieId)
             console.log(add_fav)
             if(favs.includes(movieId)){
-                clean_board(contenedor)
                 favs = favs.filter(x => x != movieId)
                 location.reload()
             }
