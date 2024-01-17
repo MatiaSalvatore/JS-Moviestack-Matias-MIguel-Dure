@@ -37,51 +37,51 @@ const info_content1 = `
     `
     
 const info_content2 = `
-    <table class="text-white">
-    <tr class="w-[500px]">
-        <th class="  text-white uppercase w-1/2 text-center">Original language
+    <table class="text-white border-collapse border border-slate-500">
+    <tr class="w-[600px]">
+        <th class="  text-white uppercase w-1/2 text-center border-collapse border border-slate-500">Original language
         </th>
-        <td class="   w-1/2 text-center">${movie.original_language}</td>
+        <td class="   w-1/2 text-center border-collapse border border-slate-500">${movie.original_language}</td>
     </tr>
     <tr class="w-[500px]">
-        <th class="   text-white uppercase w-1/2 text-center">
+        <th class="   text-white uppercase w-1/2 text-center border-collapse border border-slate-500">
             Release date
         </th>
-        <td class="   w-1/2 text-center">${movie.release_date}</td>
+        <td class="   w-1/2 text-center border-collapse border border-slate-500">${movie.release_date}</td>
     </tr>
     <tr class="w-[500px]">
-        <th class="   text-white uppercase w-1/2 text-center">
+        <th class="   text-white uppercase w-1/2 text-center border-collapse border border-slate-500">
             Runtime
         </th>
-        <td class="   w-1/2 text-center">${movie.runtime}</td>
+        <td class="   w-1/2 text-center border-collapse border border-slate-500">${movie.runtime}</td>
     </tr>
     <tr class="w-[500px]">
-        <th class="   text-white uppercase w-1/2 text-center">
+        <th class="   text-white uppercase w-1/2 text-center border-collapse border border-slate-500">
             Status
         </th>
-        <td class="   w-1/2 text-center">${movie.status}</td>
+        <td class="   w-1/2 text-center border-collapse border border-slate-500">${movie.status}</td>
     </tr>
     </table>
     `
     
 const info_content3 = `
-    <table class="   text-white">
+    <table class="   text-white border-collapse border border-slate-500">
     <tr class="w-[500px]">
-        <th class="   text-white uppercase w-1/2 text-center">Vote average
+        <th class="   text-white uppercase w-1/2 text-center border-collapse border border-slate-500">Vote average
         </th>
-        <td class="   w-1/2 text-center">${movie.vote_average}</td>
+        <td class="   w-1/2 text-center border-collapse border border-slate-500">${movie.vote_average}</td>
     </tr>
     <tr class="w-[500px]">
-        <th class="   text-white uppercase w-1/2 text-center">
+        <th class="   text-white uppercase w-1/2 text-center border-collapse border border-slate-500">
             Budget
         </th>
-        <td class="   w-1/2 text-center">${movie.budget} $</td>
+        <td class="   w-1/2 text-center border-collapse border border-slate-500">${movie.budget} $</td>
     </tr>
     <tr class="w-[500px]">
-        <th class="   text-white uppercase w-1/2 text-center">
+        <th class="   text-white uppercase w-1/2 text-center border-collapse border border-slate-500">
             Revenue
         </th>
-        <td class="   w-1/2 text-center">${movie.revenue} $</td>
+        <td class="   w-1/2 text-center border-collapse border border-slate-500">${movie.revenue} $</td>
     </tr>
     </table>
     `
